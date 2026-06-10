@@ -13,7 +13,7 @@ class ResearchState(TypedDict, total=False):
     landscape: dict
     comps: dict
     ideas: list
-    node_path: str
+    note_path: str
     #----- Control flow -----#
     review_status: str
     mode: str
