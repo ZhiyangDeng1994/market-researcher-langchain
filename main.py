@@ -20,7 +20,7 @@ async def main():
         answer = input("> ") or "approve"
         result = await graph.ainvoke(Command(resume=answer), config)
 
-    print("\n✅ Done:", result.get("note_path"), "|", result.get("comps_xlsx"))
+    print("\n[OK] Done:", result.get("note_path"), "|", result.get("comps_xlsx"))
 
 
 if __name__ == "__main__":

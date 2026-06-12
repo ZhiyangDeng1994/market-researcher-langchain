@@ -6,6 +6,7 @@ from langchain_anthropic import ChatAnthropic
 from langchain.agents import create_agent
 from langgraph.types import interrupt
 from langgraph.checkpoint.memory import MemorySaver
+from langchain_tavily import TavilySearch
 from .state import ResearchState
 from .prompt_loader import load_prompt
 from .schemas import SectorReaderOutput
@@ -18,7 +19,7 @@ FAST_MODEL = "claude-sonnet-4-6"
 
 
 def scope(state: ResearchState) -> dict:
-    #print("-> scope")
+    print("-> scope")
     #return {"universe": ["NEE", "VST", "CEG"], "review_status": "scoped"}
     llm = ChatAnthropic(model=FAST_MODEL)
     message = llm.invoke([
@@ -31,30 +32,66 @@ def scope(state: ResearchState) -> dict:
     tickers = [t.strip() for t in message.replace("\n", ",").split(",") if t.strip()]
     return {"universe": tickers, "review_status": "scoped"}
 
-def sector_reader(state: ResearchState) -> dict:
-    # print("-> sector_reader")
-    # return {"overview": {"facts": ["Data center electricity demand is growing rapidly "]}, 
-    #         "landscape": {}
-    #         }
-    llm = ChatAnthropic(model=SMART_MODEL).with_structured_output(SectorReaderOutput)
+# def sector_reader(state: ResearchState) -> dict:
+#     # print("-> sector_reader")
+#     # return {"overview": {"facts": ["Data center electricity demand is growing rapidly "]}, 
+#     #         "landscape": {}
+#     #         }
+#     llm = ChatAnthropic(model=SMART_MODEL).with_structured_output(SectorReaderOutput)
+#     system = (
+#         "You are producing a structured sector overview RIGHT NOW, headless, from your"
+#         " own knowledge. You CANNOT ask scoping questions and CANNOT produce Word/PPT/Excel."
+#         " Your only output is the schema: the sector name plus 8-15 concrete facts, each a"
+#         " specific claim with its best-known source, covering market size & growth, industry"
+#         " structure, key trends/drivers, and supply-demand dynamics. Use the methodology"
+#         " below only as a guide for WHAT to cover — ignore its scoping/workflow/document steps."
+#         " Every fact needs a source; omit any fact you cannot source.\n\n"
+#         "--- METHODOLOGY (reference only) ---\n"
+#         + load_prompt("sector_overview")
+#     )
+#     result = llm.invoke([
+#         {"role": "system", "content": system},
+#         {"role": "user", "content":
+#             f"Produce the sector overview for {state['sector']} (angle: {state.get('angle','')})."
+#             " Return 8-15 sourced facts now."},
+#     ])
+#     print("→ sector_reader |", len(result.facts), "facts")
+#     return {"overview": result.model_dump()}
+async def sector_reader(state: ResearchState) -> dict:
+    print("-> sector_reader")
+    search = TavilySearch(max_results=5)
     system = (
-        "You are producing a structured sector overview RIGHT NOW, headless, from your"
-        " own knowledge. You CANNOT ask scoping questions and CANNOT produce Word/PPT/Excel."
-        " Your only output is the schema: the sector name plus 8-15 concrete facts, each a"
-        " specific claim with its best-known source, covering market size & growth, industry"
-        " structure, key trends/drivers, and supply-demand dynamics. Use the methodology"
-        " below only as a guide for WHAT to cover — ignore its scoping/workflow/document steps."
-        " Every fact needs a source; omit any fact you cannot source.\n\n"
-        "--- METHODOLOGY (reference only) ---\n"
+        "You are producing a structured sector overview with REAL, VERIFIED data."
+        " You have a web search tool — USE IT before stating any fact."
+        " Your workflow: (1) search for key industry data, market size, growth forecasts,"
+        " supply/demand dynamics, regulatory developments; (2) read the search results;"
+        " (3) extract 8-15 concrete facts, each with the REAL source from search results."
+        "\n\nRules:"
+        "\n- EVERY fact must come from your search results, not from memory."
+        "\n- The source field must be the actual publication name + date from the search result."
+        "\n- If search results don't cover a topic, search again with a different query."
+        "\n- Do NOT invent or hallucinate sources — only cite what you actually found."
+        "\n\n--- METHODOLOGY (reference for what to cover) ---\n"
         + load_prompt("sector_overview")
+        + "\n\nENVIRONMENT ADAPTATION: You are running headless inside a pipeline."
+        " Ignore scoping/workflow/document steps in the methodology above."
+        " Output only the structured schema fields."
     )
-    result = llm.invoke([
-        {"role": "system", "content": system},
+    agent = create_agent(
+        model=ChatAnthropic(model=FAST_MODEL),
+        tools=[search],
+        system_prompt=system,
+        response_format=SectorReaderOutput,
+    )
+    res = await agent.ainvoke({"messages": [
         {"role": "user", "content":
-            f"Produce the sector overview for {state['sector']} (angle: {state.get('angle','')})."
-            " Return 8-15 sourced facts now."},
-    ])
-    print("→ sector_reader |", len(result.facts), "facts")
+            f"Research the sector: {state['sector']} (angle: {state.get('angle', '')})."
+            " Search the web for current data. Return 8-15 sourced facts."},
+    ]},
+    {"recursion_limit": 10},
+    )
+    result: SectorReaderOutput = res["structured_response"]
+    print("→ sector_reader |", len(result.facts), "facts (web-sourced)")
     return {"overview": result.model_dump()}
 
 # def comps_spreader(state: ResearchState) -> dict:
