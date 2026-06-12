@@ -1,0 +1,50 @@
+{
+  "Claude": {
+    "coverage": {
+      "score": 5,
+      "note": "Covers demand size/growth, supply constraints (turbines, transformers, queues), key players, regional dynamics, and PPA/regulatory context comprehensively."
+    },
+    "sourcing": {
+      "score": 4,
+      "note": "Overview claims well-attributed to varied, plausible sources (LBNL, GS, PJM, NERC, McKinsey, company filings); minor inconsistency between two GS figures (165% vs 160%)."
+    },
+    "data_integrity": {
+      "score": 5,
+      "note": "Comps are non-uniform and plausible; computed multiples check out (e.g., VST 68470/6790=10.1x, AES EPS 1.92 on $14.67=7.6x), no obvious errors."
+    },
+    "analytical_quality": {
+      "score": 4,
+      "note": "Differentiated theses with sound peer-relative logic and named risks; weakened by numerous [UNSOURCED] tags on key quantitative claims (capacity GW, IRA PTC, dividend yield)."
+    },
+    "actionability": {
+      "score": 5,
+      "note": "Clear conviction ranking, specific next steps per name, and an explicit 'what's missing' section pointing to adjacent screens — strong starting point for a junior."
+    },
+    "overall": 4,
+    "summary": "Institutional-quality primer with strong coverage, plausible non-stub comps, and actionable differentiated ideas; main weakness is the number of unsourced quantitative claims in the Ideas section that need verification."
+  },
+  "GPT-4o": {
+    "coverage": {
+      "score": 4,
+      "note": "Strong on demand growth, supply bottlenecks, regional dynamics and some policy context, but lighter on market structure/economics by customer type and utility regulatory mechanics."
+    },
+    "sourcing": {
+      "score": 4,
+      "note": "Overview is well attributed to varied and plausible sources, but the investment theses contain multiple explicitly unsourced operating and valuation claims."
+    },
+    "data_integrity": {
+      "score": 3,
+      "note": "Comps are generally plausible and multiples math works, but several figures look stale/misaligned and peer set mixes merchant power, regulated utilities and even AWK, reducing comparability."
+    },
+    "analytical_quality": {
+      "score": 3,
+      "note": "Ideas have clear directional theses and risks, but some logic overstates exposure (e.g., FE to capacity prices), relies on loose peer-relative valuation, and lacks deeper earnings bridge support."
+    },
+    "actionability": {
+      "score": 4,
+      "note": "Usable as a starting point with concrete next steps and scenario work, though a junior analyst would still need substantial cleanup on sourcing, peer grouping, and model assumptions."
+    },
+    "overall": 4,
+    "summary": "A solid, above-basic primer with credible sector framing and investable angles, but not yet institutional quality because the comp set is somewhat muddled and too many stock-specific assertions are unsupported or analytically stretched."
+  }
+}

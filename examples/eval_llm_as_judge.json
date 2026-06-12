@@ -1,0 +1,50 @@
+{
+  "Claude": {
+    "coverage": {
+      "score": 5,
+      "note": "Covers demand size/growth, supply constraints (turbines, transformers, queues), key players, regional dynamics, and hyperscaler/nuclear sourcing trends comprehensively."
+    },
+    "sourcing": {
+      "score": 4,
+      "note": "Overview claims are well-attributed to varied, plausible sources (LBNL, GS, PJM, NERC, McKinsey); minor inconsistencies in GS figures and some unsourced tags in Ideas."
+    },
+    "data_integrity": {
+      "score": 4,
+      "note": "Comps look plausible and non-uniform; computed multiples mostly check out, though NRG P/E of 137x and AES 7.6x could use explanation, and CEG EBITDA seems low for ~32GW nuclear."
+    },
+    "analytical_quality": {
+      "score": 5,
+      "note": "Differentiated theses, sound peer-relative valuation, explicit risks per name, and honest flagging of unsourced claims; conviction ranking is coherent."
+    },
+    "actionability": {
+      "score": 5,
+      "note": "Clear next steps per idea, explicit screen-out logic, and a 'what's missing' section pointing to adjacent screens (GEV, transformers, uranium, shorts)."
+    },
+    "overall": 5,
+    "summary": "Institutional-quality primer with thorough coverage, varied sourcing, plausible comps, and genuinely differentiated analysis; the disciplined self-flagging of unsourced claims and adjacent-idea roadmap make it an excellent junior-analyst starting point. Minor source inconsistencies and a couple unexplained multiples are the only blemishes."
+  },
+  "GPT": {
+    "coverage": {
+      "score": 4,
+      "note": "Strong overview of demand growth, supply bottlenecks, regional dynamics, and some regulatory context, but limited treatment of demand-side economics/customer mix and market structure by region."
+    },
+    "sourcing": {
+      "score": 4,
+      "note": "Overview claims are generally tied to specific and plausible sources across LBNL, Goldman, PJM, DOE, NERC, McKinsey and company filings, but many stock-specific thesis points and several valuation/ranking statements are explicitly unsourced."
+    },
+    "data_integrity": {
+      "score": 3,
+      "note": "Comps data are broadly plausible and multiples calculate cleanly, but there are some eyebrow-raisers (e.g., NRG 137x P/E, ETR 28x, AES 7.6x) that likely reflect period-specific or adjusted/non-adjusted mismatches without explanation."
+    },
+    "analytical_quality": {
+      "score": 4,
+      "note": "Ideas have clear theses, differentiated exposure types, and listed risks, with sensible scarcity framing, though some peer-relative logic overstates direct linkage between PJM tightness and regulated utilities that do not own generation."
+    },
+    "actionability": {
+      "score": 4,
+      "note": "A junior analyst could use this as a credible starting point given the screening logic and explicit next steps, but it still needs sourced company facts, normalized estimates, and a tighter catalyst calendar before real investment work."
+    },
+    "overall": 4,
+    "summary": "Good primer with strong sector framing and investable idea generation, held back from institutional quality by unsourced stock-level assertions and some unnormalized comps/valuation datapoints that need reconciliation."
+  }
+}

@@ -1,3 +1,4 @@
+import json
 from pathlib import Path
 from .guardrails import flag_unsourced
 from langgraph.graph import StateGraph, START, END
@@ -149,6 +150,10 @@ def note_writer(state: ResearchState) -> dict:
     path = out / fname
     body = flag_unsourced("\n".join(parts))
     path.write_text(body, encoding="utf-8")
+    (out / "manifest.json").write_text(
+        json.dumps({"primer": str(path), "comps_xlsx": state.get("comps_xlsx", "")}),
+        encoding="utf-8",
+    )
     return {"note_path": str(path)}
 
 def review_comps(state: ResearchState) -> dict:
