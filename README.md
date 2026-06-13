@@ -6,18 +6,18 @@ sector, it produces an equity-research **primer**: a sourced market overview, a 
 comparable-company table (with a formula-driven Excel workbook), and a long/short
 idea shortlist.
 
-> ⚠️ **Not investment advice.** Outputs are AI-generated and built on free,
-> best-effort data (Yahoo Finance). Verify every figure before relying on it.
+> **Not investment advice.** Outputs are AI-generated and built on free,
+> best-effort data (Yahoo Finance + web search). Verify every figure before relying on it.
 
 ## What it does
 
 Running the agent for a sector (e.g. *US data-center power*) generates:
 
-- **Overview** — 8–15 key facts on market size, structure, trends, and supply/demand,
-  each with a source.
-- **Comps** — a peer valuation table from live market data, plus `out/comps.xlsx`
-  where every multiple is an Excel **formula** (`=B5/C5`) and every input cell carries
-  a **source comment**.
+- **Overview** — 8-15 key facts on market size, structure, trends, and supply/demand,
+  each sourced from real web search results (via Tavily).
+- **Comps** — a peer valuation table from live market data (Yahoo Finance), plus
+  `out/comps.xlsx` where every multiple is an Excel **formula** (`=B5/C5`) and every
+  input cell carries a **source comment**.
 - **Ideas** — a long/short shortlist with thesis, risks, and peer-relative valuation.
 
 Output lands in `out/` as a Markdown primer + an Excel workbook. Curated samples live
@@ -33,25 +33,24 @@ scope -> sector_reader -> comps_spreader -> [review] -> idea_generator -> note_w
 
 | Node | Role | Notes |
 |---|---|---|
-| `scope` | List the ticker universe for the sector | |
-| `sector_reader` | Produce structured, sourced facts | schema-constrained, **no tools** (untrusted-reader isolation) |
-| `comps_spreader` | Fetch fundamentals, build the Excel comps | tool-using agent; **read-only** data access |
+| `scope` | List the ticker universe for the sector | Sonnet |
+| `sector_reader` | Search the web, produce structured sourced facts | Tavily search + schema-constrained output |
+| `comps_spreader` | Fetch fundamentals, build the Excel comps | tool-using agent; yfinance (or MCP) |
 | `idea_generator` | Long/short idea shortlist | reasons over overview + comps |
 | `note_writer` | Assemble the primer, write files | the **only** node that writes output |
 | `review_comps` / `review_note` | Pause for human approval | LangGraph `interrupt()` + checkpointer |
 
-Reasoning-heavy nodes (`sector_reader`, `idea_generator`) use Claude Opus; lighter
-nodes use Claude Sonnet, via the Anthropic API.
-
 Design properties carried over from the original agent:
 
-- **Three-tier isolation** — a schema-constrained reader (no tools), read-only data
-  access for comps, and a single write-capable node.
+- **Three-tier isolation** — a schema-constrained reader, read-only data access for
+  comps, and a single write-capable node.
+- **Web-sourced facts** — `sector_reader` searches the web via Tavily before producing
+  facts, eliminating reliance on LLM memory and reducing hallucination risk.
 - **Guardrail** — `flag_unsourced` tags numeric prose lacking a source with
   `[UNSOURCED]`; a rule enforced in code, not just the prompt.
 - **Verbatim skills** — the `sector-overview`, `comps-analysis`, and `idea-generation`
-  methodologies are the original `SKILL.md` files, with a small per-node note adapting
-  them to a headless pipeline.
+  methodologies are the original `SKILL.md` files from the Anthropic repo, with a
+  per-node environment adaptation note.
 
 ## Setup
 
@@ -60,17 +59,20 @@ Requires Python 3.11+.
 ```bash
 python3.11 -m venv .venv && source .venv/bin/activate
 pip install langgraph langchain langchain-anthropic langchain-mcp-adapters \
-            pydantic python-dotenv openpyxl yfinance pytest
+            langchain-tavily pydantic python-dotenv openpyxl yfinance pytest
 pip install -e .
 ```
 
-Add your Anthropic API key to a `.env` file:
+Create a `.env` file with your API keys:
 
 ```dotenv
 ANTHROPIC_API_KEY=sk-ant-...
+TAVILY_API_KEY=tvly-...
 CAPIQ_MCP_URL=
 FACTSET_MCP_URL=
 ```
+
+Get your Tavily key (free, 1000 searches/month) at https://app.tavily.com.
 
 ## Run
 
@@ -82,18 +84,35 @@ The run pauses twice for review — type `approve` to continue. Results appear i
 
 ## Data sources
 
-By default, fundamentals come from **Yahoo Finance** (free, no key). If you have
-enterprise subscriptions, set `CAPIQ_MCP_URL` / `FACTSET_MCP_URL` in `.env` and the
-pipeline automatically switches to those MCP servers — no code change required.
+| Data | Source | Key required |
+|---|---|---|
+| Sector overview facts | Tavily web search | TAVILY_API_KEY (free tier) |
+| Financial fundamentals | Yahoo Finance (yfinance) | None |
+| Enterprise data (optional) | S&P CapIQ / FactSet MCP | CAPIQ_MCP_URL / FACTSET_MCP_URL |
 
-## Tests
+If you have enterprise subscriptions, set the MCP URLs in `.env` and the pipeline
+automatically switches from yfinance to those MCP servers — no code change required.
+
+## Evaluation
+
+Three layers, from cheapest to most rigorous:
 
 ```bash
+# Layer 1: deterministic format + structure checks (zero cost, fast)
 pytest
+
+# Layer 2: LLM-as-Judge dual scoring — Claude + GPT (requires API keys)
+python tests/eval_llm_judge.py
+
+# Layer 3: web-search fact verification (requires TAVILY_API_KEY + OPENAI_API_KEY)
+python tests/eval_fact_check.py
 ```
 
-Covers graph compilation, node presence, and guardrail behavior — fast, deterministic,
-and no API calls.
+| Layer | What it checks | Cost |
+|---|---|---|
+| `pytest` (24 tests) | Graph structure, guardrail logic, output format, Excel formulas | Free |
+| `eval_llm_judge.py` | Coverage, sourcing, data integrity, analytical quality, actionability | ~$0.10 |
+| `eval_fact_check.py` | Fact accuracy via real web search — not LLM memory | ~$0.20 |
 
 ## Project layout
 
@@ -103,12 +122,16 @@ market_researcher/
   state.py          # shared state (TypedDict)
   schemas.py        # structured-output schemas (Pydantic)
   guardrails.py     # flag_unsourced
-  mcp_client.py     # data tools: yfinance stub <-> real MCP auto-switch
+  mcp_client.py     # data tools: yfinance <-> real MCP auto-switch
   prompt_loader.py  # loads prompts/*.md
   prompts/          # verbatim SKILL.md methodologies
   tools/xlsx.py     # formula-driven comps workbook
 main.py             # async entrypoint (interrupt / resume loop)
 tests/
+  test_graph.py     # graph compilation + guardrail unit tests
+  test_format.py    # output file quality checks
+  eval_llm_judge.py # Claude + GPT dual scoring
+  eval_fact_check.py # web-search fact verification
 examples/           # sample outputs
 ```
 
