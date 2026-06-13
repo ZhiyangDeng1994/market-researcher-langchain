@@ -1,4 +1,5 @@
 # Market Researcher (LangGraph)
+This project is a derivative work based on Anthropic's [financial-services](https://github.com/anthropics/financial-services) (Apache-2.0). The (`SKILL.md`) methodology files are reproduced from that project；modifications are limited to per-node environment adaptation notes. Original copyright © Anthropic.
 
 A runnable reimplementation of Anthropic's **Market Researcher** agent, built as a
 stateful [LangGraph](https://github.com/langchain-ai/langgraph) pipeline. Given a
