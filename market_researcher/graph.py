@@ -1,4 +1,5 @@
 import json
+import certifi, os
 from pathlib import Path
 from .guardrails import flag_unsourced
 from langgraph.graph import StateGraph, START, END
@@ -13,9 +14,13 @@ from .schemas import SectorReaderOutput
 from .schemas import CompsTable
 from .mcp_client import get_market_data_tools
 from .tools.xlsx import build_comps_xlsx
+from .rag import get_classical_rag_tool, get_agentic_rag_tool
 
 SMART_MODEL = "claude-opus-4-8"
 FAST_MODEL = "claude-sonnet-4-6"
+
+# ── RAG mode: "off" | "classical" | "agentic" ──
+RAG_MODE = "off"
 
 
 def scope(state: ResearchState) -> dict:
@@ -59,7 +64,34 @@ def scope(state: ResearchState) -> dict:
 #     return {"overview": result.model_dump()}
 async def sector_reader(state: ResearchState) -> dict:
     print("-> sector_reader")
-    search = TavilySearch(max_results=5)
+
+    ##################################################
+    ############ New Component for RAG ##############
+    os.environ["SSL_CERT_FILE"] = certifi.where()
+    os.environ["REQUESTS_CA_BUNDLE"] = certifi.where()
+
+    web_search = TavilySearch(max_results=5)
+    tools = [web_search]
+
+    if RAG_MODE == "classical":
+        rag_tool = get_classical_rag_tool()
+        if rag_tool:
+            tools.insert(0, rag_tool)
+            print("  [RAG] Classical mode — report library available")
+        else:
+            print("  [RAG] No vector DB — web search only")
+
+    elif RAG_MODE == "agentic":
+        rag_tool = get_agentic_rag_tool(ChatAnthropic(model=FAST_MODEL))
+        if rag_tool:
+            tools.insert(0, rag_tool)
+            print("  [RAG] Agentic mode — deep search available")
+        else:
+            print("  [RAG] No vector DB — web search only")
+
+    else:
+        print("  [RAG] Off — web search only")
+    #######################################################################
     system = (
         "You are producing a structured sector overview with REAL, VERIFIED data."
         " You have a web search tool — USE IT before stating any fact."
@@ -79,7 +111,7 @@ async def sector_reader(state: ResearchState) -> dict:
     )
     agent = create_agent(
         model=ChatAnthropic(model=FAST_MODEL),
-        tools=[search],
+        tools=[web_search],
         system_prompt=system,
         response_format=SectorReaderOutput,
     )
