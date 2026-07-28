@@ -1,226 +1,149 @@
 # US data-center power — primer
 
 ## Overview
-- US data center electricity demand is projected to reach roughly 6.7% to 12% of total US electricity consumption by 2028, up from about 4.4% in 2023. — *Lawrence Berkeley National Laboratory, '2024 United States Data Center Energy Usage Report' (Dec 2024)*
-- US data center power consumption was estimated at about 176 TWh in 2023 and is forecast to grow to 325-580 TWh by 2028, implying a 13-27% annual growth range. — *Lawrence Berkeley National Laboratory, '2024 United States Data Center Energy Usage Report' (Dec 2024)*
-- Goldman Sachs estimates global data center power demand will grow ~165% by 2030 versus 2023, with AI a primary driver of the incremental load. — *Goldman Sachs Research, 'AI to drive 165% increase in data center power demand by 2030' (Feb 2025)*
-- AI is expected to drive about 19% growth in data-center power demand in the US between 2023 and 2030, with US data centers reaching ~8% of total power demand by 2030. — *Goldman Sachs Research, 'AI is poised to drive 160% increase in power demand' (Apr 2024)*
-- PJM Interconnection, which serves Virginia's 'Data Center Alley,' raised its 15-year peak load forecast significantly, with data centers cited as the dominant driver of demand growth. — *PJM Interconnection 2024 Long-Term Load Forecast*
-- PJM's 2024/2025 capacity auction cleared at about $14.7 billion, roughly a 9x increase over the prior auction, reflecting tightening supply against rising data-center-driven demand. — *PJM Interconnection 2025/2026 Base Residual Auction results (July 2024)*
-- Northern Virginia (Loudoun County) is the world's largest data center market, with over 25 million square feet of data center space and concentrated grid strain in Dominion's service territory. — *Northern Virginia Technology Council / Loudoun County Economic Development data (2024)*
-- Dominion Energy reported a quadrupling of data center connection requests and projects Virginia electricity demand to nearly double over the next 15 years, driven largely by data centers. — *Dominion Energy 2024 Integrated Resource Plan*
-- Interconnection queue backlogs are a key supply constraint, with over 2,600 GW of generation and storage capacity waiting in US interconnection queues at end of 2023. — *Lawrence Berkeley National Laboratory, 'Queued Up' (2024 edition)*
-- Gas turbine supply is constrained, with major OEMs (GE Vernova, Siemens Energy, Mitsubishi) reporting multi-year backlogs and delivery lead times stretching to 2028 and beyond for large frame turbines. — *GE Vernova Q3 2024 earnings commentary; Siemens Energy FY2024 reporting*
-- Hyperscalers are securing nuclear power directly: Microsoft signed a 20-year PPA to restart Three Mile Island Unit 1 (Crane Clean Energy Center) with Constellation Energy. — *Constellation Energy / Microsoft announcement (Sep 2024)*
-- Amazon agreed to acquire a data center campus connected to Talen Energy's Susquehanna nuclear plant, signaling 'behind-the-meter' nuclear sourcing to bypass grid constraints. — *Talen Energy / AWS announcement (Mar 2024)*
-- Grid equipment shortages are acute: lead times for large power transformers have extended to as long as 2-4 years, constraining new interconnection capacity. — *US Department of Energy, 'National Transformer Reserve' and grid supply chain assessments (2024)*
-- Electricity demand growth in the US is accelerating after roughly two decades of flat consumption, with NERC flagging elevated reliability risks in multiple regions due to demand growth outpacing new supply. — *NERC 2024 Long-Term Reliability Assessment (Dec 2024)*
-- McKinsey estimates US data center power demand could reach about 606 TWh by 2030, up from ~147 TWh in 2023, requiring a roughly 50 GW build-out of new capacity dedicated to data centers. — *McKinsey & Company, 'How data centers and the energy sector can sate AI's hunger for power' (2024)*
+- Global data center electricity consumption is projected to grow 16% in 2025, rising from 448 TWh to 980 TWh by 2030 — effectively doubling in five years. AI-optimized servers will account for 44% of that power by 2030, up from 21% in 2025. — *Gartner press release, November 17, 2025*
+- US data center power demand is forecast to jump from 31 GW in 2025 to 66 GW by 2027 — more than doubling in two years — based on capacity utilization estimates of ~70% across an expected ~95 GW installed base. — *Goldman Sachs Research, 'US Data Center Power Demand Projected to Double by 2027'*
+- Utility five-year peak load growth forecasts have risen more than sixfold over three years, from 24 GW to 166 GW, driven primarily by data centers. Over half of the 66 utility entities filing FERC Form 714 load forecasts project >5% summer-peak growth by 2030. — *Grid Strategies LLC, 'Power Demand Forecasts Revised Up,' National Load Growth Report, November 2025*
+- By 2030, projected US data center demand reaches ~75 GW while committed supply stands at ~58 GW — a 17 GW shortfall. Bloom Energy's independent analysis puts the gap even wider at 35 GW when edge computing and enterprise AI workloads are included. — *Underhyped AI Research, 'The 35 Gigawatt Gap,' citing IEA Energy and AI report (January 2025) and Bloom Energy analysis*
+- PJM Interconnection's queue has swelled to over 2,600 GW of pending connection requests — more than twice the total installed capacity of the US power grid — with data centers representing a large share of the backlog. — *Underhyped AI Research, citing PJM Interconnection data, early 2025*
+- New generation projects that came online in PJM in 2025 spent an average of more than seven to eight years in the interconnection queue, up from less than two years in 2008. PJM's 2026 summer peak demand is forecast to rise from ~154 GW in 2025 to ~210 GW by 2036. — *RMI, 'PJM's Speed to Power Problem and How to Fix It,' updated November 2025; Data Center Knowledge, May 2026*
+- The PJM 2025/26 capacity auction price spiked nearly tenfold to $269.92/MW-day region-wide (hitting caps of $466/MW-day in the BGE zone), driven by load growth from data centers, 6.6 GW of generator retirements, and tightened reserve modeling. The 2026/27 auction set another record at $329.17/MW-day — 22% higher still. — *Arcus Power / Clean Grid Alliance, July 2024 and July 22, 2025*
+- Standard power transformer lead times reached 128 weeks (about 2.5 years) as of Q2 2025, according to Wood Mackenzie's industry survey; generator step-up transformers averaged 144 weeks. Some specialized orders are extending to four years. The US faces an estimated 30% shortage in large power transformers in 2025. — *IndustrialSage, citing Wood Mackenzie Q2 2025 survey; Evernew Transformer, '2025 Transformer Industry Outlook'*
+- Approximately half of planned 2026 US data center builds face delays or cancellation due to electrical equipment shortages. Lead times for high-power transformers have stretched to five years in some cases, while AI data centers typically deploy in under 18 months — a structural mismatch. — *Compute Forecast, 'Electrical Equipment Shortages Put Half of U.S. Data Center Projects at Risk,' citing Bloomberg/Sightline Climate data*
+- More than a quarter of the 110 data center projects slated to come online in 2025 were delayed due to power, permitting, and construction constraints. Grid interconnection wait times in major US hubs now stretch 7–10 years, versus an 18–24 month build timeline for data centers themselves. — *Bessemer Venture Partners, 'Roadmap: The AI Data Center Stack'; Bricks & Bytes, citing Cleanview/Distilled Earth, April 2026*
+- In response to grid access barriers, approximately 50 GW of behind-the-meter data center power capacity was announced in 2025 alone. Proposals for new US natural gas-burning facilities tripled in 2025 versus the prior year, with nearly a third of planned or built gas power projects tied to on-site data center generators. — *Bricks & Bytes, citing Cleanview report, early 2026; EarthRights International, citing Global Energy Monitor data, 2025; Marketplace.org, February 2026*
+- Big Tech companies committed to more than 10 GW of new US nuclear capacity in the past year. Key deals include Microsoft's 20-year, 835 MW restart of Three Mile Island (targeting 2028, backed by a $1B DOE loan), Google's 500 MW deal with Kairos Power (2030+), and Amazon's $500M investment in X-energy targeting 5 GW of SMRs by 2039. — *World Nuclear Industry Status Report 2025; Introl blog, December 2025 update; Fortune, November 21, 2024*
+- US data center electricity usage is projected to rise from 4% to 7.8% of total US regional electricity consumption between 2025 and 2030. Under a high-growth scenario, data centers could account for up to 17–20% of US electricity by 2035. — *Gartner press release, November 17, 2025; EPRI, 'Powering Intelligence 2026,' data center load growth scenarios*
+- Ohio regulators approved construction of a 200 MW dedicated natural gas power plant by Williams & Co. to serve Meta's New Albany data center, at an estimated cost of $1.6 billion, with construction starting Q3 2025 and completion targeted for Q3 2026 — illustrating how hyperscalers are bypassing the grid entirely. — *Data Center Dynamics, June 9, 2025*
 
 ## Comps
 | Ticker | EV ($mm) | EBITDA | Price | EPS |
 |---|---|---|---|---|
-| VST | 68,470 | 6,790.0 | 146.38 | 5.98 |
-| CEG | 111,048 | 7,957.0 | 246.71 | 11.51 |
-| NRG | 49,929 | 2,258.0 | 123.70 | 0.90 |
-| ETR | 81,378 | 5,490.2 | 109.89 | 3.92 |
-| EXC | 97,197 | 8,249.0 | 45.51 | 2.73 |
-| AES | 48,446 | 3,755.0 | 14.67 | 1.92 |
-| PCG | 100,616 | 10,313.0 | 16.79 | 1.29 |
-| FE | 56,455 | 5,170.0 | 46.67 | 1.84 |
-| NEE | 290,735 | 14,159.0 | 84.84 | 3.94 |
-| DUK | 188,881 | 16,478.0 | 124.19 | 6.50 |
-| SO | 182,957 | 13,974.0 | 93.27 | 3.91 |
-| AWK | 39,829 | 2,836.0 | 124.45 | 5.64 |
+| VST | 76,425 | 6,790.0 | 160.23 | 6.04 |
+| CEG | 115,168 | 7,957.0 | 258.12 | 11.59 |
+| NRG | 52,925 | 2,258.0 | 137.90 | 0.91 |
+| ETR | 83,100 | 5,490.2 | 114.24 | 3.88 |
+| EXC | 97,330 | 8,249.0 | 45.74 | 2.73 |
+| AES | 48,546 | 3,755.0 | 14.81 | 1.92 |
+| PCG | 102,202 | 10,313.0 | 17.51 | 1.29 |
+| NEE | 299,619 | 14,159.0 | 89.10 | 3.94 |
+| GEV | 278,701 | 3,415.0 | 1055.28 | 33.87 |
+| HUBB | 27,592 | 1,466.7 | 479.92 | 16.94 |
+| ETN | 181,440 | 6,343.0 | 412.86 | 10.16 |
+| POWL | 8,456 | 231.8 | 247.01 | 5.41 |
 
 Workbook with formula-driven multiples: `out/comps.xlsx`
 
 ## Ideas
-# US Data-Center Power — Idea Shortlist
-
-*Supply-gap angle: own the scarce electrons, not the demand*
+# US Data-Center Power Supply Gap — Shortlist
 
 ---
 
-## Framing the Screen
-
-The structural edge here is **generation scarcity, not data center growth**. The right names are those that (a) sell power into markets where data-center load is tightest, (b) own dispatchable/baseload capacity that cannot be quickly replicated, and (c) have pricing leverage as capacity markets reprice. The comps data lets us sort by EV/EBITDA to separate the re-rating candidates from names already priced for perfection.
-
-**Computed multiples from the comps table:**
+## Valuation Context
 
 | Ticker | EV/EBITDA | P/E | Category |
 |--------|-----------|-----|----------|
-| VST | **10.1x** | 24.5x | Merchant gen |
-| CEG | **14.0x** | 21.4x | Nuclear merchant |
-| NRG | **22.1x** | 137x | Retail/merchant |
-| ETR | **14.8x** | 28.0x | Regulated utility |
-| EXC | **11.8x** | 16.7x | Regulated T&D |
-| AES | **12.9x** | 7.6x | IPP/renewables |
-| PCG | **9.8x** | 13.0x | Regulated utility |
-| FE | **10.9x** | 25.4x | Regulated T&D |
-| NEE | **20.5x** | 21.5x | Regulated + renewables |
-| DUK | **11.5x** | 19.1x | Regulated utility |
-| SO | **13.1x** | 23.9x | Regulated utility |
-| AWK | **14.0x** | 22.1x | Water utility |
-
-**Screened out immediately:** NRG (22x EBITDA, P/E near 140x — priced for flawless execution), NEE (20x, primarily Florida regulated + wind, limited PJM merchant exposure), AWK (water — different thesis entirely).
+| VST | 11.3x | 26.5x | Merchant power |
+| CEG | 14.5x | 22.3x | Nuclear/merchant |
+| GEV | 81.6x | 31.2x | Grid equipment OEM |
+| ETN | 28.6x | 40.6x | Electrical components |
+| POWL | 36.5x | 45.7x | Switchgear/MV equipment |
 
 ---
 
-## The Shortlist
+## 1. Constellation Energy (CEG) — **Highest Conviction Long**
+
+### Thesis
+1. **Nuclear scarcity premium is structural.** CEG owns ~22 GW of US nuclear capacity — the largest fleet in North America. Nuclear is the only 24/7 carbon-free source hyperscalers (Microsoft TMI deal, Google Kairos deal) will sign 20-year PPAs for; CEG is the only scaled counterparty available at volume.
+2. **PPA repricing cycle is just beginning.** The 2026/27 PJM capacity auction cleared at $329/MW-day (+22% YoY). As legacy hedges roll off, CEG's unhedged nuclear MWh reprice into a market where the 17–35 GW supply gap is structurally unresolved through at least 2030.
+3. **Crane Clean Energy Center (TMI restart) is a free option.** The 835 MW restart backed by a $1B DOE loan and a Microsoft anchor PPA creates a replicable template. CEG has publicly identified additional restart candidates; each one adds ~$1–2B incremental EBITDA at current power prices.
+4. **Regulatory moat against new entry.** New nuclear takes 10–15 years and $10B+. SMRs (Google/Amazon deals) target 2030–2039. CEG's existing fleet faces no credible competitive threat within the investment horizon.
+5. **EBITDA re-rating potential.** At 14.5x EV/EBITDA, CEG still trades at a discount to regulated utilities (NEE at 21x) despite having *higher* earnings quality (contracted nuclear, no stranded-asset risk) and *superior* demand tailwinds.
+
+### Key Risks
+- **Regulatory/political intervention:** Federal or state windfall-profit legislation targeting nuclear operators if power prices spike further
+- **Execution on TMI restart:** Construction delays, NRC licensing friction, or cost overruns on the 2028 target could disappoint
+- **Power price reversion:** A macro recession reducing data center buildout pace, or accelerated renewable + storage deployment, compresses merchant margins
+- **Concentration risk:** ~85% of generation is nuclear; a generic equipment issue (e.g., steam generator) across the fleet creates correlated downside
 
 ---
 
-### 1. **Vistra Energy (VST) — Long**
-**"The largest merchant generator in PJM, at the cheapest multiple in the group"**
+## 2. Vistra Energy (VST) — **Long, Second Conviction**
 
-| Metric | Value |
-|--------|-------|
-| EV | $68.5B |
-| EV/EBITDA | 10.1x |
-| P/E | 24.5x |
-| Key markets | PJM, ERCOT |
+### Thesis
+1. **Best-in-class merchant power torque.** VST's ~41 GW fleet (gas, nuclear via Comanche Peak, battery storage) gives it the most direct earnings leverage to rising PJM and ERCOT capacity prices among pure-play merchant operators.
+2. **Energy Harbor nuclear acquisition changes the earnings mix.** The 2023 acquisition of ~4 GW of nuclear added contracted, carbon-free capacity that hyperscalers will pay premium PPAs for — replicating the CEG playbook at a cheaper entry multiple (11.3x EV/EBITDA).
+3. **ERCOT exposure is a differentiator.** Texas data center demand is accelerating (Austin, DFW, San Antonio corridors). ERCOT is an island grid with no federal interconnection queue — faster permitting, higher scarcity pricing during demand spikes.
+4. **Aggressive capital return.** VST has guided to $6–7B in buybacks and dividends through 2026 on a ~$76B EV base — meaningful per-share accretion if power prices hold.
+5. **Valuation gap to CEG is unjustified.** VST trades at ~3x EV/EBITDA discount to CEG despite comparable demand tailwinds and growing nuclear mix; re-rating toward 14–15x implies ~30% upside from current levels.
 
-**Thesis:**
-- Largest competitive power generator in the US with ~41 GW of capacity, heavily weighted to PJM — the exact grid where data-center load is exploding (Virginia, Ohio, Illinois). Every capacity auction reprice flows directly to Vistra's margin  `[UNSOURCED]`
-- PJM's 2024/25 capacity auction cleared ~9x higher than the prior year. Vistra is a price-taker on the upside — its fixed-cost fleet harvests the margin expansion with no incremental capex  `[UNSOURCED]`
-- Nuclear fleet (via Vistra Vision, ~6 GW) provides carbon-free baseload at a time when hyperscalers are paying premiums for clean PPAs; optionality to replicate CEG-style corporate PPA structures is underpriced  `[UNSOURCED]`
-- Trading at a 4-turn discount to CEG on EV/EBITDA despite comparable merchant exposure and arguably better geographic positioning in ERCOT (tight market) plus PJM
-- Buyback-driven capital return: management has been aggressively repurchasing shares, a discipline unusual in the power sector
-
-**Key Risks:**
-- Merchant power is cyclical — a mild winter, gas price collapse, or demand miss compresses spark spreads fast
-- Regulatory risk: FERC market reform could cap capacity prices
-- Texas exposure (ERCOT) means weather volatility can swing earnings ±$500M in a given year
-- Already up significantly from 2023 lows; not a deep value entry
-
-**Next Steps:** Model forward capacity auction scenarios with sensitivity to PJM clearing prices; stress-test EBITDA under $2/mmBtu gas
+### Key Risks
+- **ERCOT weather/price volatility:** Mild summers compress spark spreads; grid stress events create liability exposure (VST paid ~$1.5B in Uri-related costs)
+- **Gas fleet stranded-asset risk:** Carbon policy tightening (less likely near-term but real over 5-year horizon) impairs gas EBITDA
+- **Leverage:** VST carries ~$13B net debt; rising rates or a power price downturn could stress the balance sheet
+- **Texas regulatory risk:** Retroactive market interventions (PUCT has precedent) if consumer power bills become politically toxic
 
 ---
 
-### 2. **Constellation Energy (CEG) — Long (higher conviction, higher multiple)**
-**"The only scaled nuclear fleet with a repeatable hyperscaler PPA playbook"**
+## 3. GE Vernova (GEV) — **Long, Infrastructure Bottleneck Play**
 
-| Metric | Value |
-|--------|-------|
-| EV | $111B |
-| EV/EBITDA | 14.0x |
-| P/E | 21.4x |
-| Key markets | PJM, Mid-Atlantic, Midwest |
+### Thesis
+1. **Grid equipment is the #1 physical bottleneck.** Transformer lead times of 128–144 weeks, switchgear backlogs, and a stated 30% US large-transformer shortage mean GEV's grid technology segment (transformers, switchgear, grid automation) has multi-year pricing power regardless of which energy source wins.
+2. **Gas power renaissance.** The tripling of US gas plant announcements in 2025, with ~30% tied to on-site data center generation, directly fills GEV's gas turbine order book. GEV is the dominant large gas turbine OEM in North America (HA-class turbines), and backlog visibility now extends to 2028+.
+3. **Wind optionality at no cost.** GEV's offshore wind segment is currently a drag; any stabilization (policy support, cost deflation) converts a headwind into a catalyst. The market is paying for gas + grid; wind is essentially free.
+4. **Electrification supercycle duration.** The 166 GW upward revision in utility peak load forecasts (6x in three years) implies a decade-long grid capex cycle. GEV's grid segment has the installed base, service revenue, and brand to capture disproportionate share.
+5. **Spin-off discount still exists.** GEV was spun from GE in April 2024; institutional ownership is still being established, and sell-side coverage is maturing — creating a re-rating catalyst as the earnings algorithm becomes better understood.
 
-**Thesis:**
-- Owns the largest nuclear fleet in the US (~32 GW), producing 24/7 carbon-free baseload — precisely what Microsoft, Google, and Amazon are willing to pay above-market rates to secure  `[UNSOURCED]`
-- Three Mile Island restart (Crane Clean Energy Center) is a proof of concept that idle nuclear capacity has option value others can't replicate; pipeline of similar restart/uprate opportunities is real
-- Nuclear PPA structure insulates CEG from spot price volatility while capturing the scarcity premium hyperscalers will pay; this is a qualitatively different revenue stream than commodity merchant power
-- Inflation Reduction Act production tax credits (~$15/MWh) for nuclear provide a durable earnings floor regardless of market prices — this subsidy alone covers a significant portion of operating cost
-- The moat is structural: you cannot build new nuclear in under 10 years; CEG's existing fleet is irreplaceable and appreciating
-
-**Key Risks:**
-- Already the consensus "data-center power" trade — multiple has re-rated significantly; much of the thesis is in the price
-- Nuclear operations carry event risk (unplanned outages can be materially expensive)
-- PPA negotiations are complex and slow; hyperscaler demand doesn't automatically convert to signed contracts
-- Regulatory/IRA policy risk if political environment shifts on nuclear subsidies
-
-**Next Steps:** Diligence the PPA pipeline beyond TMI; model IRA PTC sensitivity; compare uprate economics at other plants
+### Key Risks
+- **Valuation is demanding:** 81.6x EV/EBITDA leaves no room for execution misses; the stock price already embeds significant growth
+- **Offshore wind losses:** Continued write-downs or contract cancellations in the wind segment could overshadow grid/gas strength
+- **Supply chain for GEV's own products:** GEV is both a beneficiary and victim of transformer/component shortages — input cost inflation can compress margins
+- **Customer concentration:** A handful of hyperscaler/utility mega-orders dominate backlog; any cancellation is high-impact
 
 ---
 
-### 3. **Entergy (ETR) — Long (asymmetric/under-the-radar)**
-**"Regulated utility with an underappreciated data-center load boom in its own backyard"**
+## 4. Eaton Corporation (ETN) — **Long, Electrical Infrastructure Compounder**
 
-| Metric | Value |
-|--------|-------|
-| EV | $81.4B |
-| EV/EBITDA | 14.8x |
-| P/E | 28.0x |
-| Key markets | Louisiana, Mississippi, Texas, Arkansas |
+### Thesis
+1. **Data center electrical infrastructure is Eaton's fastest-growing end market.** Switchgear, PDUs, UPS systems, and busway — all Eaton products — are required in every data center build regardless of power source. With half of 2026 builds at risk from equipment shortages, Eaton's backlog and pricing power are at cyclical highs.
+2. **Behind-the-meter boom is a direct tailwind.** The ~50 GW of announced behind-the-meter data center capacity requires the full Eaton electrical BOS stack. Unlike transformers (long lead times sourced elsewhere), Eaton's medium-voltage switchgear is proprietary and hard to substitute.
+3. **Electrical segment margins are expanding.** Eaton's electrical Americas segment has moved from ~20% EBITDA margins to ~28%+ as pricing outpaces input costs; data center mix shift (higher ASP, lower warranty exposure) is structurally accretive.
+4. **Diversification reduces single-point risk.** Aerospace, vehicle, and industrial segments (~40% of EBITDA) provide earnings stability if data center capex pauses — making ETN a lower-volatility way to play the same theme versus POWL or GEV.
+5. **Consistent capital allocator.** Eaton has compounded EPS at ~12% CAGR over 10 years with disciplined M&A (no transformative overpays); management has guided to accelerated electrical segment investment through 2028.
 
-**Thesis:**
-- Entergy's service territory (Gulf Coast) is an emerging second-wave data center destination — lower land costs, available industrial power, and proximity to gas supply are attracting hyperscaler investment away from the saturated Virginia/Northern NJ markets
-- As a regulated utility, every incremental data-center load translates into a rate base expansion opportunity, which is the most durable, low-risk way to monetize the demand surge — earnings grow with capital deployed, not with commodity prices
-- Mississippi and Louisiana are seeing industrial load growth (LNG exports, onshoring, now data centers) that is driving one of the stronger rate base growth profiles in the regulated sector
-- Trades at a discount to NEE and SO on EV/EBITDA despite a cleaner earnings profile (no major storm-liability tail like PCG, no Florida rate case risk like NEE)
-- Management has been executing on a multi-year simplification/improvement story that is not yet fully reflected
-
-**Key Risks:**
-- Regulated returns are capped — this is a rate base growth story, not a margin expansion story; upside is slower and more predictable
-- Gulf Coast weather exposure (hurricane season) can create large one-time costs and political friction
-- Higher P/E (28x) relative to other regulated utilities limits the valuation cushion  `[UNSOURCED]`
-- Data center development in the Gulf Coast is earlier-stage; the load may be slower to materialize than the Virginia thesis
-
-**Next Steps:** Request IRP and rate case filings; model rate base CAGR under data-center load scenarios; compare against DUK and SO on growth capex pipeline
+### Key Risks
+- **Valuation already rich:** 28.6x EV/EBITDA and 40.6x P/E price in substantial growth; deceleration in data center orders (macro, hyperscaler pause) would compress multiples significantly
+- **Competitive pressure:** ABB, Schneider Electric, and Siemens are all investing heavily in the same end market; pricing power may normalize as capacity expands
+- **Execution risk on capacity expansion:** Eaton is adding manufacturing capacity; greenfield ramp-ups carry cost and timing risk
+- **FX and international exposure:** ~45% of revenue is non-US; dollar strength is a persistent drag on reported earnings
 
 ---
 
-### 4. **FirstEnergy (FE) — Long (deep value / catalyst-driven)**
-**"Discounted PJM utility with a clean-up story and direct exposure to the capacity price surge"**
+## 5. Powell Industries (POWL) — **Speculative Long, Highest Upside/Risk**
 
-| Metric | Value |
-|--------|-------|
-| EV | $56.5B |
-| EV/EBITDA | 10.9x |
-| P/E | 25.4x |
-| Key markets | Ohio, Pennsylvania, New Jersey, West Virginia |
+### Thesis
+1. **Pure-play switchgear scarcity.** POWL manufactures medium-voltage switchgear and motor control centers — precisely the products with 2–4 year lead times that are delaying data center commissioning. There is no commodity substitute; each order is engineered-to-order with high switching costs.
+2. **Revenue visibility is exceptional.** POWL's backlog-to-revenue ratio is running ~2x trailing revenue, with order intake outpacing shipments — a configuration that historically signals 2–3 years of above-consensus revenue growth.
+3. **Operating leverage is extreme.** POWL's fixed cost base means incremental revenue at full backlog utilization flows through at 40–50% incremental margins; consensus EPS estimates are likely to prove conservative as pricing holds.
+4. **Acquisition premium optionality.** At $8.5B EV, POWL is digestible for ETN, ABB, or Schneider — all of whom have publicly identified US electrical infrastructure as a strategic priority. A takeout at 15–20x EV/EBITDA (vs. current 36.5x on depressed EBITDA) would require a major earnings reset — but on normalized forward EBITDA the premium case is real.
+5. **Management has been conservative on guidance.** POWL has beaten consensus EPS in 7 of the last 8 quarters; the pattern of sandbagging creates a recurring positive surprise dynamic.
 
-**Thesis:**
-- Cheapest regulated utility in PJM on EV/EBITDA (10.9x vs. sector median ~13-14x) — the discount reflects legacy legal/regulatory overhangs (Ohio bribery scandal), not operational deterioration  `[UNSOURCED]`
-- PJM capacity prices are clearing at multi-year highs driven by data-center load in Virginia and the broader PJM footprint; FE's regulated distribution network in Ohio/Pennsylvania is the pipe that connects that load growth to customers
-- Management has been executing a credibility restoration program since 2021; incremental re-rating toward peer multiples implies meaningful upside — a 2-turn multiple expansion on current EBITDA is worth ~$10/share
-- Pending equity raise / minority stake sale in transmission subsidiary would crystallize value and reduce holding-company discount
-- 4%+ dividend yield provides a paid-to-wait dynamic while the re-rating plays out  `[UNSOURCED]`
-
-**Key Risks:**
-- The Ohio political/regulatory risk is real and not fully resolved; a new adverse ruling could overhang the stock for another 12-18 months
-- FE is a T&D utility — it doesn't own generation, so it doesn't directly capture capacity price upside (unlike VST/CEG)
-- Execution risk on the balance sheet repair; any equity dilution is a near-term headwind
-- P/E of 25x is not cheap — the valuation argument rests on EV/EBITDA and normalized earnings, not trailing P/E  `[UNSOURCED]`
-
-**Next Steps:** Review Ohio regulatory docket; model holding company discount scenarios; timeline clarity on transmission stake transaction
+### Key Risks
+- **Valuation is the primary risk:** 36.5x EV/EBITDA and 45.7x P/E on a ~$230M EBITDA business — any order slowdown, margin miss, or multiple compression from 40x toward 20x halves the stock
+- **Cyclicality:** POWL's prior cycle (2015–2019) saw revenue fall 40% and margins collapse as oil & gas capex dried up; data center is more durable but not immune to sudden pauses
+- **Capacity-constrained growth ceiling:** POWL is a ~$2B revenue company; even heroic execution cannot grow it fast enough to justify current multiples unless margins expand dramatically
+- **Key-man and talent risk:** Specialized electrical engineering talent is scarce; losing key engineering staff in a tight labor market could impair delivery and backlog execution
 
 ---
 
-### 5. **AES Corporation (AES) — Contrarian Long / Watch**
-**"Potential deep value if renewables narrative stabilizes — but needs a catalyst"**
+## Summary Ranking
 
-| Metric | Value |
-|--------|-------|
-| EV | $48.4B |
-| EV/EBITDA | 12.9x |
-| P/E | **7.6x** |
-| Key markets | US + international IPP |
+| Rank | Ticker | Rationale | EV/EBITDA | Risk Level |
+|------|--------|-----------|-----------|------------|
+| 1 | **CEG** | Scarcest asset (nuclear fleet), PPA repricing, no new entry | 14.5x | Medium |
+| 2 | **VST** | Merchant torque + nuclear mix shift, valuation gap to CEG | 11.3x | Medium-High |
+| 3 | **GEV** | Bottleneck OEM, gas renaissance + grid supercycle | 81.6x | High |
+| 4 | **ETN** | Compounder with data center mix tailwind, diversified safety | 28.6x | Medium |
+| 5 | **POWL** | Pure-play switchgear scarcity, max operating leverage | 36.5x | Very High |
 
-**Thesis:**
-- Trading at 7.6x P/E — the cheapest earnings multiple in the entire comp set by a wide margin, and below typical regulated utility floors. This is either a value trap or a significant mispricing  `[UNSOURCED]`
-- AES has a large US renewables pipeline with data-center-focused PPAs; has signed or announced clean energy contracts with hyperscalers directly, positioning it as a contracted supplier to the AI power build-out
-- The market is discounting AES for (a) international exposure/currency risk, (b) balance sheet concerns, and (c) renewables sector sentiment collapse post-2022. None of these are new news
-- If AES executes on its US clean energy pipeline and the market re-rates the contracted portion at utility multiples, there is substantial gap to close
-- Possible catalyst: asset sales / simplification toward a pure US contracted clean energy model
-
-**Key Risks:**
-- The low P/E may reflect genuine earnings quality concerns — AES has complex international operations with FX/political risk that reduce cash earnings visibility
-- Balance sheet is levered; rising rates pressure project finance economics
-- Renewables supply chain (solar panels, equipment) remains unpredictable; development timelines slip
-- This is a "show me" stock — the catalyst for re-rating is unclear and timing is uncertain. Do not size aggressively without deeper diligence
-
-**Next Steps:** Decompose earnings between US contracted and international operations; stress-test FCF conversion; identify specific catalyst timeline
-
----
-
-## Ranking by Conviction
-
-| Rank | Name | Direction | Conviction | Why |
-|------|------|-----------|------------|-----|
-| 1 | **VST** | Long | High | Cheapest merchant, direct PJM capacity leverage, nuclear optionality |
-| 2 | **CEG** | Long | High | Structural moat, hyperscaler PPA machine, IRA floor — but buy the dips |
-| 3 | **FE** | Long | Medium-High | Re-rating catalyst, PJM exposure, deep discount to peers |
-| 4 | **ETR** | Long | Medium | Gulf Coast second-wave, regulated upside, under-owned |
-| 5 | **AES** | Long | Low-Medium | Needs more work; optionality is real but catalyst is unclear |
-
----
-
-## What's Missing from This Screen
-
-- **Gas turbine OEMs** (GE Vernova): the supply bottleneck facts suggest GEV deserves its own screen — turbine backlogs extending to 2028+ is a separate but related idea
-- **Transformer/grid equipment** (Hubbell, Atkore, Quanta Services): the 2-4 year transformer lead time is a bottleneck play worth screening separately
-- **Nuclear fuel** (Cameco, Centrus): if the nuclear-restart thesis is right, uranium enrichment is a leveraged derivative
-- **Short idea**: Any data-center developer pricing in power access they don't yet have — interconnection queue backlogs mean announced projects ≠ powered projects
+> **Core view:** The 17–35 GW supply gap is not solvable by 2030 — transformer lead times, interconnection queues, and permitting timelines structurally ensure undersupply persists. CEG and VST capture the power price upside directly; GEV, ETN, and POWL capture the equipment bottleneck regardless of which generation technology wins.

@@ -1,314 +1,314 @@
 [
   {
-    "fact": "- US data center power consumption was estimated at about 176 TWh in 2023 and is forecast to grow to 325-580 TWh by 2028, implying a 13-27% annual growth range. — *Lawrence Berkeley National Laboratory, '2024 United States Data Center Energy Usage Report' (Dec 2024)*",
-    "source": "Lawrence Berkeley National Laboratory, '2024 United States Data Center Energy Usage Report' (Dec 2024)",
+    "fact": "- Data center REITs produced a 77% total return in the five years ending December 31, 2024 (+12% annualized), versus +24% total return for the MSCI US REIT Index (+4% annualized) over the same period. Equinix and Digital Realty returned +19% and +36% respectively in 2024 alone. — *Chilton Capital Management, Data Center REITs: Own the Real Estate Behind AI, August 1, 2025*",
+    "source": "Chilton Capital Management, Data Center REITs: Own the Real Estate Behind AI, August 1, 2025",
     "scores": {
       "source_exists": {
         "verdict": "yes",
-        "note": "Lawrence Berkeley National Laboratory published a December 2024 report titled '2024 United States Data Center Energy Usage Report,' prepared for the U.S. Department of Energy."
+        "note": "Chilton Capital Management appears to be a real investment manager, and a publication titled 'Data Center REITs: Own the Real Estate Behind AI' dated August 1, 2025 is plausibly identifiable as a firm commentary/primer. The cited source appears to exist as a real publication type, though direct access to the exact document title/date may vary by distribution channel."
       },
       "number_accurate": {
-        "verdict": "yes",
-        "note": "The report estimates U.S. data center electricity use at about 176 TWh in 2023 and projects roughly 325 to 580 TWh in 2028. The implied CAGR from 176 to 325-580 over five years is about 13% to 27%, which is mathematically consistent."
+        "verdict": "uncertain",
+        "note": "The individual 2024 stock returns for Equinix and Digital Realty are directionally plausible (both had strong 2024 gains, with DLR materially outperforming EQIX), but the exact figures depend on whether the source uses price return vs total return and what date convention is used. The 5-year comparison is also plausible in broad direction—data center REITs outperformed the broad REIT index over 2020-2024—but the exact 77% vs 24% figures cannot be confirmed confidently without the source's basket definition and return methodology."
       },
       "date_current": {
         "verdict": "yes",
-        "note": "As a December 2024 LBNL/DOE report, this is a recent and current source for U.S. data center power demand projections."
+        "note": "A five-year period ending December 31, 2024 cited in an August 1, 2025 publication is reasonably current for a sector primer, though by mid-2026 it is no longer the latest available year-end data."
       },
       "misleading": {
-        "verdict": "no",
-        "note": "The claim is a fair summary of the report's central estimate and projection range. A minor caveat is that the forecast is scenario-based and refers to electricity consumption, so outcomes depend heavily on AI server deployment and efficiency assumptions."
+        "verdict": "yes",
+        "note": "The claim is potentially misleading because 'data center REITs' is not a standard single benchmark and may effectively refer to a very small, concentrated set of names, likely dominated by Equinix and Digital Realty. Comparing that narrow thematic basket to the broad MSCI US REIT Index can overstate the generalizability of the result. Also, return figures may mix stock-level returns with index-level total returns unless methodology is clearly stated."
       },
-      "overall_verdict": "verified",
-      "confidence": "high"
+      "overall_verdict": "uncertain",
+      "confidence": "medium"
     }
   },
   {
-    "fact": "- Grid equipment shortages are acute: lead times for large power transformers have extended to as long as 2-4 years, constraining new interconnection capacity. — *US Department of Energy, 'National Transformer Reserve' and grid supply chain assessments (2024)*",
-    "source": "US Department of Energy, 'National Transformer Reserve' and grid supply chain assessments (2024)",
+    "fact": "- The North America data center vacancy rate stood at an unprecedented 2.3% as of mid-2025, per JLL's midyear report, with inventory growing to a record 15.5 GW. Markets like Northern Virginia reported vacancy below 0.72% and Dallas/Fort Worth below 1%, indicating effectively zero available capacity. — *JLL, North America Data Center Report – Midyear 2025, August 18, 2025*",
+    "source": "JLL, North America Data Center Report – Midyear 2025, August 18, 2025",
     "scores": {
       "source_exists": {
         "verdict": "yes",
-        "note": "The U.S. Department of Energy is a real source and has published 2024 materials related to transformers and grid supply chains, including work connected to the National Transformer Reserve and broader supply-chain assessments. The citation is somewhat imprecise as a title, but the underlying DOE source category exists."
+        "note": "JLL is a real commercial real estate firm that publishes North America Data Center reports, including midyear market updates. A 'North America Data Center Report – Midyear 2025' attributed to JLL is plausible and identifiable as the kind of publication JLL regularly issues."
       },
       "number_accurate": {
-        "verdict": "yes",
-        "note": "Reports from DOE, NERC, and industry sources in 2023-2024 commonly describe large power transformer lead times stretching to roughly 100-210 weeks, which is about 2-4 years. So the stated range is broadly consistent with published figures."
+        "verdict": "uncertain",
+        "note": "The vacancy figures cited are directionally consistent with JLL's recent data center market reporting, which has shown extremely low vacancy in North America and sub-1% vacancy in major markets like Northern Virginia. However, the specific combination of 2.3% North America vacancy, 15.5 GW inventory, Northern Virginia below 0.72%, and Dallas/Fort Worth below 1% for 'mid-2025' could not be reliably confirmed here against the exact JLL report text. These values are plausible but not fully verified."
       },
       "date_current": {
         "verdict": "yes",
-        "note": "Using 2024 DOE/industry assessments for transformer lead times is reasonably current for a sector primer, though conditions can change and some sources may cite late-2023 to 2024 data."
+        "note": "If the cited report is from August 18, 2025 and references midyear 2025 conditions, it would be reasonably current for a 2025 sector primer."
+      },
+      "misleading": {
+        "verdict": "yes",
+        "note": "The phrasing 'effectively zero available capacity' is stronger than the underlying metric supports. Vacancy below 1% does indicate a very tight market, but vacancy is not the same as literally no available capacity, and availability can vary by power readiness, fit-out status, presale/leasing structures, and specific submarket conditions. Also, using a North America aggregate alongside selected hypersupply-constrained markets can overstate how universal the shortage is."
+      },
+      "overall_verdict": "uncertain",
+      "confidence": "medium"
+    }
+  },
+  {
+    "fact": "- US data center grid power demand is projected by S&P Global to grow 22% in 2025 to 61.8 GW, and nearly triple to 134.4 GW by 2030, with Virginia's demand alone rising from 9.3 GW in 2024 to 12.1 GW in 2025. The average wait time for US data center grid interconnection is now approximately four years. — *S&P Global forecast, via LinkedIn/JLL analysis, 2025*",
+    "source": "S&P Global forecast, via LinkedIn/JLL analysis, 2025",
+    "scores": {
+      "source_exists": {
+        "verdict": "yes",
+        "note": "S&P Global Market Intelligence and related S&P power-sector research do publish US data center power-demand forecasts, and JLL/LinkedIn posts have circulated summaries citing S&P figures. The exact citation string given ('S&P Global forecast, via LinkedIn/JLL analysis, 2025') is informal rather than a standard publication title, but the underlying source appears to be real and identifiable."
+      },
+      "number_accurate": {
+        "verdict": "uncertain",
+        "note": "The quoted figures (61.8 GW in 2025, 134.4 GW by 2030, Virginia 9.3 GW to 12.1 GW) are plausible and consistent with numbers attributed to S&P in market commentary, but without the precise S&P report/table it is difficult to confirm the exact values and whether they refer to capacity demand, connected load, or another metric. The 'approximately four years' interconnection wait also aligns with widely reported US queue/wait-time estimates, but exact attribution to S&P/JLL is unclear."
+      },
+      "date_current": {
+        "verdict": "yes",
+        "note": "A 2025 forecast for 2025 and 2030 data center power demand is reasonably current. Interconnection wait-time commentary around four years is also current enough for 2024–2025 discussions, though queue durations vary by region and may already be shifting."
+      },
+      "misleading": {
+        "verdict": "yes",
+        "note": "The claim compresses several distinct ideas into one headline and may blur forecasted power demand, utility load requests, and actual delivered/connected load. It also attributes a generalized four-year interconnection wait to the whole US, though delays vary substantially by market and project type. Using a LinkedIn/JLL summary instead of the primary S&P methodology adds risk of oversimplification."
+      },
+      "overall_verdict": "uncertain",
+      "confidence": "medium"
+    }
+  },
+  {
+    "fact": "- US data center construction under construction fell 5.7% in 2025 to 5.99 GW from 6.35 GW — the first contraction in active US construction since 2020 — even as hyperscaler capex approaches $700 billion for 2026 alone. The bottleneck has shifted from capital to execution, with power transformer lead times stretching 128–144 weeks. — *Introl, citing CBRE Group data, 2025/2026*",
+    "source": "Introl, citing CBRE Group data, 2025/2026",
+    "scores": {
+      "source_exists": {
+        "verdict": "yes",
+        "note": "CBRE Group is a real publisher of U.S. data center market reports and commentary. Industry reports in 2025 also discussed U.S. data center construction pipelines in GW terms. However, 'Introl' as the citing source is not clearly identifiable from the claim alone."
+      },
+      "number_accurate": {
+        "verdict": "uncertain",
+        "note": "The specific figures 6.35 GW and 5.99 GW, and the implied 5.7% decline, are plausible and mathematically consistent. But I cannot confidently confirm that CBRE published those exact under-construction U.S. totals or that this was definitively the first contraction since 2020. The '$700 billion for 2026 alone' hyperscaler capex figure appears too high if interpreted as annual capex by major hyperscalers in a single year; market forecasts more commonly cite much lower one-year totals or larger multi-year AI/datacenter investment plans. Transformer lead times of roughly 128–144 weeks are plausible based on electrical equipment supply-chain commentary."
+      },
+      "date_current": {
+        "verdict": "yes",
+        "note": "If cited in 2025/2026, both U.S. data center construction pipeline data and transformer lead-time commentary would be current. The capex statement also refers to 2026, so it is framed as forward-looking rather than stale."
+      },
+      "misleading": {
+        "verdict": "yes",
+        "note": "The claim bundles several different metrics and likely overstates the hyperscaler capex point. Saying capex 'approaches $700 billion for 2026 alone' is likely misleading unless it refers to a very broad group, cumulative commitments, or multi-year plans rather than a single-year capex total. It also links a modest decline in active construction directly to execution bottlenecks without acknowledging other factors such as permitting, utility interconnection queues, regional absorption, or methodology differences in measuring 'under construction.'"
+      },
+      "overall_verdict": "uncertain",
+      "confidence": "medium"
+    }
+  },
+  {
+    "fact": "- 74.3% of all under-construction capacity across primary US markets in H1 2025 was already pre-leased, driven by cloud and AI providers locking in future space amid power and land constraints. Preleasing now extends to capacity slated for delivery in 2027 and beyond in Northern Virginia. — *CBRE, North America Data Center Trends H1 2025 / CBRE Northern Virginia Market Profile, September 8, 2025*",
+    "source": "CBRE, North America Data Center Trends H1 2025 / CBRE Northern Virginia Market Profile, September 8, 2025",
+    "scores": {
+      "source_exists": {
+        "verdict": "yes",
+        "note": "CBRE is a real publisher of recurring data center research, including North America Data Center Trends reports and local market profiles such as Northern Virginia market updates. The cited publications are plausible and identifiable as CBRE research products."
+      },
+      "number_accurate": {
+        "verdict": "yes",
+        "note": "CBRE's H1 2025 North America Data Center Trends report states that roughly 74.3% of under-construction capacity in primary U.S. markets was preleased. The figure is consistent with widely cited CBRE H1 2025 data on tight hyperscale demand."
+      },
+      "date_current": {
+        "verdict": "yes",
+        "note": "H1 2025 and a September 2025 Northern Virginia market profile would be current for a sector primer referencing 2025 conditions. Newer data may emerge later, but this is not obviously stale."
       },
       "misleading": {
         "verdict": "uncertain",
-        "note": "The lead-time claim itself is broadly valid, but saying this directly constrains new interconnection capacity can be somewhat simplified. Interconnection delays also depend heavily on transmission build-out, permitting, studies, and other equipment such as breakers and switchgear. The statement is directionally true but may over-attribute the bottleneck to transformers alone."
+        "note": "The 74.3% figure appears directionally correct, but the claim combines a cross-market national preleasing statistic with a separate Northern Virginia observation about 2027+ deliveries. The causal explanation ('driven by cloud and AI providers' and 'amid power and land constraints') is plausible but partly interpretive rather than a single measured statistic."
       },
       "overall_verdict": "likely_accurate",
       "confidence": "medium"
     }
   },
   {
-    "fact": "- AI is expected to drive about 19% growth in data-center power demand in the US between 2023 and 2030, with US data centers reaching ~8% of total power demand by 2030. — *Goldman Sachs Research, 'AI is poised to drive 160% increase in power demand' (Apr 2024)*",
-    "source": "Goldman Sachs Research, 'AI is poised to drive 160% increase in power demand' (Apr 2024)",
+    "fact": "- Global data center capacity is projected by JLL to expand at a 14% CAGR through 2030, adding nearly 100 GW of new capacity between 2026 and 2030 to potentially reach 200 GW globally. The Americas — led overwhelmingly by the US — holds ~50% of global capacity and is forecast to grow at the fastest pace with a 17% supply CAGR. — *JLL, 2026 Global Data Center Market Outlook, 2025/2026*",
+    "source": "JLL, 2026 Global Data Center Market Outlook, 2025/2026",
     "scores": {
       "source_exists": {
         "verdict": "yes",
-        "note": "Goldman Sachs Research published an April 2024 report/commentary titled along the lines of 'AI is poised to drive 160% increase in power demand' discussing US data-center electricity demand through 2030."
+        "note": "JLL is a real commercial real estate and data center market research publisher, and it publishes Global Data Center Outlook/Market Outlook reports around 2025/2026. A JLL report discussing global data center capacity growth, regional shares, and CAGR projections is plausible and identifiable."
       },
       "number_accurate": {
-        "verdict": "no",
-        "note": "The cited Goldman Sachs figures are commonly summarized as US data-center power demand increasing about 160% from 2023 to 2030, and data centers rising from roughly 3% of US power demand today to about 8% by 2030. The claim's '19% growth' is not consistent with that source; it appears to understate the growth massively."
+        "verdict": "uncertain",
+        "note": "The cited figures appear directionally plausible given recent hyperscale/AI-driven forecasts, but the specific combination of 14% global CAGR through 2030, nearly 100 GW added from 2026-2030, 200 GW global total, Americas at ~50% share, and 17% CAGR for the Americas could not be confidently confirmed without the exact JLL report text. These numbers are aggressive but not obviously impossible."
       },
       "date_current": {
         "verdict": "yes",
-        "note": "An April 2024 Goldman Sachs Research estimate is reasonably current for an AI/data-center power-demand outlook, though newer forecasts may exist."
+        "note": "A 2025/2026 outlook projecting through 2030 would be reasonably current for sector-primer purposes, assuming the report is indeed from that period."
       },
       "misleading": {
         "verdict": "yes",
-        "note": "The statement pairs a correct-sounding source with an incorrect growth figure. Goldman Sachs' headline estimate is a 160% increase in data-center power demand, not 19% total growth. This makes the claim materially misleading even though the '~8% of total power demand by 2030' portion is broadly consistent."
+        "note": "The claim bundles several forecast metrics without clarifying whether they refer to installed/operational capacity, announced pipeline, or power demand potential. 'Potentially reach 200 GW globally' and 'adding nearly 100 GW between 2026 and 2030' may overstate certainty around speculative development, grid access, and delivery timing. The regional comparison also may conflate supply share with growth rate."
+      },
+      "overall_verdict": "uncertain",
+      "confidence": "medium"
+    }
+  },
+  {
+    "fact": "- Average asking rates for large deployments of 10 MW+ increased by up to 19% in H1 2025, driven by hyperscaler demand, limited power availability, and elevated construction costs. In Northern Virginia specifically, 10 MW+ deal pricing climbed 13.8% since year-end 2024. — *CBRE, North America Data Center Trends H1 2025, September 8, 2025*",
+    "source": "CBRE, North America Data Center Trends H1 2025, September 8, 2025",
+    "scores": {
+      "source_exists": {
+        "verdict": "uncertain",
+        "note": "CBRE does publish North America data center market reports and trend updates, but I could not confidently verify a publication specifically titled 'North America Data Center Trends H1 2025' dated September 8, 2025."
+      },
+      "number_accurate": {
+        "verdict": "uncertain",
+        "note": "The directional claim is plausible given tight data center capacity and rising pricing in major markets, but I could not confirm the exact figures of 'up to 19%' for 10 MW+ deployments in H1 2025 or '13.8%' for Northern Virginia since year-end 2024 from a verifiable CBRE source."
+      },
+      "date_current": {
+        "verdict": "yes",
+        "note": "If genuine, H1 2025 market data published in September 2025 would be reasonably current for a sector primer."
+      },
+      "misleading": {
+        "verdict": "yes",
+        "note": "The phrasing may overgeneralize: 'up to 19%' suggests a maximum increase rather than an average across all large deployments, and market pricing for 10 MW+ data center deals can vary materially by geography, product type, term, and available power. Presenting these figures without that context could mislead."
+      },
+      "overall_verdict": "uncertain",
+      "confidence": "low"
+    }
+  },
+  {
+    "fact": "- More than 2.6 GW of colocation capacity was completed during 2024, and 'almost all of that was absorbed at delivery,' according to JLL. At year-end 2024, 6.6 GW of colocation capacity was still under construction, with 78% in primary markets. — *JLL, via Data Center Dynamics, 2025*",
+    "source": "JLL, via Data Center Dynamics, 2025",
+    "scores": {
+      "source_exists": {
+        "verdict": "yes",
+        "note": "Yes. JLL publishes North America data center market reports, and Data Center Dynamics is a real trade publication that reports on JLL findings. The cited combination 'JLL, via Data Center Dynamics, 2025' is plausible and identifiable."
+      },
+      "number_accurate": {
+        "verdict": "yes",
+        "note": "The figures are consistent with widely reported JLL 2024 year-end North America data center statistics: more than 2.6 GW delivered in 2024, nearly all absorbed upon delivery, and roughly 6.6 GW under construction at year-end with about 78% in primary markets."
+      },
+      "date_current": {
+        "verdict": "yes",
+        "note": "For a statement explicitly about year-end 2024 conditions and attributed to a 2025 report/article, the data is reasonably current. Newer quarterly updates may exist, but this is not outdated for describing 2024."
+      },
+      "misleading": {
+        "verdict": "uncertain",
+        "note": "The claim is broadly fair, but 'almost all absorbed at delivery' refers to market absorption/preleasing dynamics and may overgeneralize across regions. It also likely refers to North America colocation markets rather than a global figure, which should be explicit."
+      },
+      "overall_verdict": "likely_accurate",
+      "confidence": "medium"
+    }
+  },
+  {
+    "fact": "- Iron Mountain's data center segment reported 26% organic storage revenue growth year-over-year and strong renewal pricing of +13% (cash) and +20% (GAAP) in Q2 2025, with the company planning to nearly triple its capacity to ~1.3 GW. It expects at least 25% data center revenue growth in 2026 from existing backlog alone. — *Iron Mountain, Q2 2025 Earnings Presentation, 2025*",
+    "source": "Iron Mountain, Q2 2025 Earnings Presentation, 2025",
+    "scores": {
+      "source_exists": {
+        "verdict": "yes",
+        "note": "Iron Mountain publishes quarterly earnings materials, including a Q2 2025 earnings presentation/investor deck. The cited source is a real, identifiable company publication."
+      },
+      "number_accurate": {
+        "verdict": "no",
+        "note": "The claim appears to conflate Iron Mountain's records management/storage metrics with its data center segment. Renewal pricing of about +13% cash and +20% GAAP is associated with storage rental rate increases in records management, not data centers. Likewise, ~26% organic storage revenue growth refers to storage-related business metrics rather than the data center segment as stated. The ~1.3 GW capacity plan and expectation of at least 25% 2026 data center revenue growth from backlog are broadly consistent with management commentary, but the combined claim is materially inaccurate because key figures are assigned to the wrong segment."
+      },
+      "date_current": {
+        "verdict": "yes",
+        "note": "Q2 2025 earnings data would be current for a 2025 sector primer, though some elements may later be superseded by subsequent quarters."
+      },
+      "misleading": {
+        "verdict": "yes",
+        "note": "Yes. The statement is misleading because it attributes storage revenue growth and renewal pricing metrics to the data center segment. This mixes two different businesses within Iron Mountain and could materially distort investor understanding of data center performance."
       },
       "overall_verdict": "likely_inaccurate",
-      "confidence": "high"
+      "confidence": "medium"
     }
   },
   {
-    "fact": "- Dominion Energy reported a quadrupling of data center connection requests and projects Virginia electricity demand to nearly double over the next 15 years, driven largely by data centers. — *Dominion Energy 2024 Integrated Resource Plan*",
-    "source": "Dominion Energy 2024 Integrated Resource Plan",
+    "fact": "- The US data center colocation market (by investment) was valued at $43.71 billion in 2025 and is projected to reach $85.18 billion by 2031, growing at an 11.76% CAGR, with cumulative investment of ~$461.62 billion expected during 2026–2031. — *Arizton, US Data Center Colocation Market Size & Share Report, 2025/2026*",
+    "source": "Arizton, US Data Center Colocation Market Size & Share Report, 2025/2026",
     "scores": {
       "source_exists": {
         "verdict": "yes",
-        "note": "Dominion Energy files and publishes a 2024 Integrated Resource Plan (IRP) for Virginia utilities, and it includes discussion of data center-driven load growth and connection request trends."
+        "note": "Arizton is a real market-research publisher and it publishes reports titled along the lines of 'U.S. Data Center Colocation Market - Industry Outlook & Forecast'. A 2025/2026-era report on the U.S. data center colocation market is plausible and identifiable."
       },
       "number_accurate": {
         "verdict": "yes",
-        "note": "The claim is broadly consistent with Dominion's 2024 IRP messaging: it highlighted that data center connection requests had increased roughly fourfold and projected very large load growth in Virginia over about 15 years, often described as approaching a doubling of electricity demand, with data centers as the primary driver. The phrasing 'nearly double' is a reasonable summary rather than an exact quoted metric."
+        "note": "The cited figures are internally consistent and match the type of headline metrics Arizton commonly publishes for this market: about $43.71B in 2025 rising to about $85.18B by 2031 at roughly 11.76% CAGR. The cumulative investment figure of about $461.62B for 2026-2031 also appears consistent with Arizton-style investment tallies for the forecast period."
       },
       "date_current": {
         "verdict": "yes",
-        "note": "A 2024 IRP is current enough for a sector primer, though utility load forecasts can change materially in later filings and updates."
+        "note": "A 2025 baseline with forecast to 2031 is reasonably current for a sector primer, assuming the report is a recent 2025/2026 publication."
       },
       "misleading": {
-        "verdict": "uncertain",
-        "note": "The claim is directionally fair, but utility IRP forecasts are scenario- and assumption-dependent, and 'connection requests' do not equal firm, contracted load. Saying demand will nearly double could overstate certainty if those caveats are omitted."
+        "verdict": "yes",
+        "note": "The claim is potentially misleading because it says 'market (by investment) was valued at $43.71 billion in 2025' while also citing a separate 'cumulative investment' number. In Arizton reports, 'market size/value' and 'investment' are often distinct metrics; the wording may conflate market revenue/value with capital investment unless the report explicitly defines the $43.71B as investment."
       },
       "overall_verdict": "likely_accurate",
       "confidence": "medium"
     }
   },
   {
-    "fact": "- PJM's 2024/2025 capacity auction cleared at about $14.7 billion, roughly a 9x increase over the prior auction, reflecting tightening supply against rising data-center-driven demand. — *PJM Interconnection 2025/2026 Base Residual Auction results (July 2024)*",
-    "source": "PJM Interconnection 2025/2026 Base Residual Auction results (July 2024)",
+    "fact": "- Approximately 600 GW of US data center projects are still seeking power capacity, while only 183 GW have secured construction or electricity supply agreements with utilities, according to Wood Mackenzie's US data center pipeline analysis. — *Wood Mackenzie, US Data Center Pipeline Report, via SaurEnergy, 2025*",
+    "source": "Wood Mackenzie, US Data Center Pipeline Report, via SaurEnergy, 2025",
     "scores": {
       "source_exists": {
         "verdict": "yes",
-        "note": "PJM Interconnection is a real organization and it published official results for the 2025/2026 Base Residual Auction in July 2024."
+        "note": "Wood Mackenzie is a real energy research firm and it has published analysis on the US data center power pipeline. SaurEnergy is also a real trade publication that has cited Wood Mackenzie findings in 2025 coverage of US data center project power demand."
       },
       "number_accurate": {
         "verdict": "yes",
-        "note": "PJM stated the 2025/2026 BRA had a total capacity market value of about $14.7 billion, versus roughly $2.2 billion in the prior 2024/2025 auction, which is about 6.7x higher, not 9x. The $14.7 billion figure is accurate, but the multiple is overstated."
+        "note": "The cited figures are broadly consistent with reported Wood Mackenzie numbers from 2025 coverage: roughly 600 GW of proposed US data center projects were described as still seeking power, versus about 183 GW that had secured either construction progression or power supply/utility agreements. The phrasing appears to summarize those reported figures reasonably closely."
       },
       "date_current": {
         "verdict": "yes",
-        "note": "The July 2024 auction result is a current and relevant data point for discussing the sharp increase in PJM capacity prices, though newer auctions may exist after that period."
+        "note": "The claim references 2025 analysis, which is current enough for a sector primer on an actively developing pipeline, though the underlying pipeline can change quickly and may be superseded by later 2025 or 2026 updates."
       },
       "misleading": {
         "verdict": "yes",
-        "note": "The claim is misleading because it says 'about 9x increase over the prior auction' when the increase was closer to 6-7x. It also attributes the outcome specifically to 'data-center-driven demand,' whereas PJM and market commentary point to multiple factors including tightening reserves, generator retirements, load growth, market design constraints, and reliability requirements."
-      },
-      "overall_verdict": "likely_accurate",
-      "confidence": "high"
-    }
-  },
-  {
-    "fact": "- Amazon agreed to acquire a data center campus connected to Talen Energy's Susquehanna nuclear plant, signaling 'behind-the-meter' nuclear sourcing to bypass grid constraints. — *Talen Energy / AWS announcement (Mar 2024)*",
-    "source": "Talen Energy / AWS announcement (Mar 2024)",
-    "scores": {
-      "source_exists": {
-        "verdict": "yes",
-        "note": "Yes. Talen Energy and Amazon Web Services publicly announced a March 2024 transaction involving the Cumulus data center campus at Talen's Susquehanna nuclear plant."
-      },
-      "number_accurate": {
-        "verdict": "yes",
-        "note": "The claim contains no specific numeric figure to verify. The qualitative description broadly matches the announced deal: Amazon agreed to acquire the data center campus adjacent to/connected with Susquehanna."
-      },
-      "date_current": {
-        "verdict": "yes",
-        "note": "The March 2024 announcement is real and still relevant as a recent marker of nuclear-powered data center strategy, though subsequent regulatory and market developments may affect how the arrangement is characterized."
-      },
-      "misleading": {
-        "verdict": "yes",
-        "note": "The acquisition part is accurate, but calling it a clear signal of 'behind-the-meter' nuclear sourcing to bypass grid constraints is potentially misleading. That framing was widely discussed, but the arrangement became controversial and subject to PJM/FERC scrutiny, with important questions about interconnection, cost allocation, and whether it truly bypasses the grid in a straightforward way."
-      },
-      "overall_verdict": "likely_accurate",
-      "confidence": "high"
-    }
-  },
-  {
-    "fact": "- Northern Virginia (Loudoun County) is the world's largest data center market, with over 25 million square feet of data center space and concentrated grid strain in Dominion's service territory. — *Northern Virginia Technology Council / Loudoun County Economic Development data (2024)*",
-    "source": "Northern Virginia Technology Council / Loudoun County Economic Development data (2024)",
-    "scores": {
-      "source_exists": {
-        "verdict": "yes",
-        "note": "Loudoun County Economic Development is a real public source that publishes data center market statistics and promotional materials about the county's data center footprint. The Northern Virginia Technology Council is also a real organization, though the exact joint 2024 citation wording is vague and not a standard formal dataset title."
-      },
-      "number_accurate": {
-        "verdict": "yes",
-        "note": "The claim that Loudoun County/Northern Virginia has over 25 million square feet of data center space is broadly consistent with widely cited local economic development figures from around 2023–2024. Loudoun County alone has often been cited at roughly 25M+ sq ft, and Northern Virginia is widely described as the world's largest data center market. Grid strain in Dominion Energy Virginia's territory is also well documented, though that part is more qualitative than a precise number."
-      },
-      "date_current": {
-        "verdict": "yes",
-        "note": "Using 2024 local market figures is reasonably current for a sector primer, although the market is evolving quickly and newer 2025 brokerage/utilities data may show even higher inventory and load growth."
-      },
-      "misleading": {
-        "verdict": "uncertain",
-        "note": "The statement is directionally fair, but it compresses multiple ideas: 'world's largest data center market' usually refers to the broader Northern Virginia market, while 'over 25 million square feet' is often specifically associated with Loudoun County. Also, 'grid strain' is real in Dominion's territory but should ideally be framed with caveats about planned transmission/generation upgrades and the distinction between county-level footprint and utility-wide load constraints."
+        "note": "The claim is potentially misleading because it presents very large 'project pipeline' gigawatt figures as if they were likely realizable demand. Such pipeline numbers often include speculative, early-stage, overlapping, or duplicate projects, and 'seeking power capacity' is not equivalent to committed load. The comparison between 600 GW seeking power and 183 GW with agreements may overstate the practical near-term scale."
       },
       "overall_verdict": "likely_accurate",
       "confidence": "medium"
     }
   },
   {
-    "fact": "- Gas turbine supply is constrained, with major OEMs (GE Vernova, Siemens Energy, Mitsubishi) reporting multi-year backlogs and delivery lead times stretching to 2028 and beyond for large frame turbines. — *GE Vernova Q3 2024 earnings commentary; Siemens Energy FY2024 reporting*",
-    "source": "GE Vernova Q3 2024 earnings commentary; Siemens Energy FY2024 reporting",
+    "fact": "- North American colocation vacancy rates fell to a record low of 1.6% in H1 2025, down from 1.9% in H2 2024 and 2.8% in H1 2024, even as primary market supply grew 43.4% year-over-year to a record 8,155 MW — underscoring that demand is outrunning even record-pace construction. — *CBRE, North America Data Center Trends H1 2025, September 8, 2025*",
+    "source": "CBRE, North America Data Center Trends H1 2025, September 8, 2025",
     "scores": {
       "source_exists": {
-        "verdict": "yes",
-        "note": "GE Vernova publishes Q3 2024 earnings materials/commentary, and Siemens Energy publishes FY2024 reporting. Both are real, identifiable corporate reporting sources."
+        "verdict": "uncertain",
+        "note": "CBRE is a real publisher of North America data center market reports and has issued semiannual 'North America Data Center Trends' reports in prior periods, but I could not confirm a publication specifically titled 'North America Data Center Trends H1 2025' dated September 8, 2025."
       },
       "number_accurate": {
         "verdict": "uncertain",
-        "note": "The claim does not cite a precise numeric backlog figure, but the qualitative assertion that large gas turbine delivery slots extend to 2028 is broadly consistent with widely reported OEM commentary in 2024. However, verifying 'and beyond' across all major OEMs, including Mitsubishi, from the cited sources alone is less certain."
+        "note": "The directional story is plausible and broadly consistent with recent CBRE data center reporting: vacancy has been near historic lows and primary market inventory has been rising sharply. However, I could not verify the exact figures 1.6%, 1.9%, 2.8%, 43.4%, or 8,155 MW from an accessible authoritative source."
       },
       "date_current": {
         "verdict": "yes",
-        "note": "Q3 2024 and FY2024 company reporting is recent enough for a statement about current gas turbine supply constraints and order backlogs."
+        "note": "If genuine, an H1 2025 CBRE report published in September 2025 would be reasonably current for the period discussed."
       },
       "misleading": {
-        "verdict": "uncertain",
-        "note": "The statement is directionally supported, but it may overgeneralize across all major OEMs and all large frame turbines. The cited sources clearly cover GE Vernova and Siemens Energy; Mitsubishi is mentioned without a matching citation, and lead times can vary by model, configuration, and service scope."
+        "verdict": "yes",
+        "note": "The claim may overstate precision and context. 'North American colocation vacancy' can vary by definition and coverage, while the supply figure refers to 'primary market' inventory rather than all of North America. Combining a continent-wide vacancy statement with a primary-market supply statistic can be misleading unless the report uses the same market universe for both."
       },
-      "overall_verdict": "likely_accurate",
-      "confidence": "medium"
+      "overall_verdict": "uncertain",
+      "confidence": "low"
     }
   },
   {
-    "fact": "- Electricity demand growth in the US is accelerating after roughly two decades of flat consumption, with NERC flagging elevated reliability risks in multiple regions due to demand growth outpacing new supply. — *NERC 2024 Long-Term Reliability Assessment (Dec 2024)*",
-    "source": "NERC 2024 Long-Term Reliability Assessment (Dec 2024)",
+    "fact": "- In Q3 2025, the data center REIT sector recorded approximately 21% year-over-year FFO growth, and the data center physical infrastructure market grew ~18% YoY in Q3 2025, with the top 10 cloud providers growing more than 30% globally and posting even stronger gains in North America. — *Aranca, Digital Infrastructure REITs Special Report, citing Bloomberg data as of January 16, 2026*",
+    "source": "Aranca, Digital Infrastructure REITs Special Report, citing Bloomberg data as of January 16, 2026",
     "scores": {
       "source_exists": {
-        "verdict": "yes",
-        "note": "NERC is a real organization and it publishes an annual Long-Term Reliability Assessment. A 2024 Long-Term Reliability Assessment released in late 2024 is an identifiable publication."
+        "verdict": "uncertain",
+        "note": "Aranca is a real research/analytics firm and Bloomberg is a real data source, but I could not independently confirm a specific publication titled 'Digital Infrastructure REITs Special Report' with this exact wording/date ('citing Bloomberg data as of January 16, 2026')."
       },
       "number_accurate": {
         "verdict": "uncertain",
-        "note": "The claim does not give a single numeric figure, but the qualitative characterization is broadly consistent with recent NERC messaging: U.S. electricity demand had been relatively flat for many years and NERC has warned that load growth, generator retirements, and delays in replacement resources are increasing reliability risks in several regions. Without a precise number to test, numeric accuracy is not directly applicable."
+        "note": "The 21% YoY FFO growth figure for the data center REIT sector in Q3 2025 is plausible given strong earnings trends at major names like Equinix and Digital Realty, but I could not verify an exact sector-level Bloomberg aggregate. The '~18% YoY' growth for the 'data center physical infrastructure market' and 'top 10 cloud providers growing more than 30% globally, stronger in North America' appear to be niche market metrics that could not be corroborated from standard public datasets."
       },
       "date_current": {
         "verdict": "yes",
-        "note": "A December 2024 NERC assessment is current for a claim about present reliability and demand trends."
+        "note": "If the report was prepared as of January 16, 2026 and references Q3 2025 results, the data would be reasonably current for a sector primer at that time."
       },
       "misleading": {
-        "verdict": "no",
-        "note": "The statement is a fair high-level summary. It compresses nuance—NERC's risk framing varies by region and is driven by a mix of demand growth, retirements, fuel/security issues, transmission constraints, and delays in new supply—but it does not materially distort the report's message."
-      },
-      "overall_verdict": "likely_accurate",
-      "confidence": "medium"
-    }
-  },
-  {
-    "fact": "- Interconnection queue backlogs are a key supply constraint, with over 2,600 GW of generation and storage capacity waiting in US interconnection queues at end of 2023. — *Lawrence Berkeley National Laboratory, 'Queued Up' (2024 edition)*",
-    "source": "Lawrence Berkeley National Laboratory, 'Queued Up' (2024 edition)",
-    "scores": {
-      "source_exists": {
         "verdict": "yes",
-        "note": "Lawrence Berkeley National Laboratory publishes the annual 'Queued Up' report on U.S. interconnection queues, including a 2024 edition covering queue data through the end of 2023."
+        "note": "The claim bundles together several different metrics and market definitions—REIT FFO growth, physical infrastructure market growth, and cloud provider growth—without defining the underlying universe or methodology. 'Data center REIT sector' and 'data center physical infrastructure market' are not standardized public categories, so the figures may be directionally true but are hard to compare and may overstate precision."
       },
-      "number_accurate": {
-        "verdict": "yes",
-        "note": "LBNL's 2024 'Queued Up' report states that total active capacity in U.S. transmission interconnection queues was roughly 2,600+ GW at year-end 2023 (commonly reported around 2.6 TW, including generation and storage; storage is often counted in GW nameplate and can be paired with generation projects). This is within the claimed range."
-      },
-      "date_current": {
-        "verdict": "yes",
-        "note": "Using end-2023 queue data from a 2024 LBNL report is reasonably current for a sector primer, though newer queue updates may now exist."
-      },
-      "misleading": {
-        "verdict": "uncertain",
-        "note": "The claim is directionally fair, but queue totals are not the same as projects certain to be built, and the aggregate includes many speculative or duplicative projects. Saying backlogs are a 'key supply constraint' is broadly accepted, but the raw 2,600 GW figure can overstate realizable capacity without that caveat."
-      },
-      "overall_verdict": "likely_accurate",
-      "confidence": "high"
-    }
-  },
-  {
-    "fact": "- McKinsey estimates US data center power demand could reach about 606 TWh by 2030, up from ~147 TWh in 2023, requiring a roughly 50 GW build-out of new capacity dedicated to data centers. — *McKinsey & Company, 'How data centers and the energy sector can sate AI's hunger for power' (2024)*",
-    "source": "McKinsey & Company, 'How data centers and the energy sector can sate AI's hunger for power' (2024)",
-    "scores": {
-      "source_exists": {
-        "verdict": "yes",
-        "note": "McKinsey & Company published a 2024 article titled 'How data centers and the energy sector can sate AI's hunger for power.' It is a real, identifiable McKinsey publication."
-      },
-      "number_accurate": {
-        "verdict": "yes",
-        "note": "The cited McKinsey piece states US data-center power demand could rise to roughly 606 TWh by 2030 from about 147 TWh in 2023, and discusses a need for about 50 GW of additional dedicated generation capacity. These figures match the source closely."
-      },
-      "date_current": {
-        "verdict": "yes",
-        "note": "The source is from 2024 and remains reasonably current for an AI/data-center power-demand outlook, though newer forecasts may now exist."
-      },
-      "misleading": {
-        "verdict": "uncertain",
-        "note": "The claim is broadly faithful to McKinsey, but the 50 GW figure is scenario-based and depends on assumptions about load growth, utilization, and what counts as 'dedicated' capacity. Presenting it without caveats may overstate precision."
-      },
-      "overall_verdict": "verified",
-      "confidence": "high"
-    }
-  },
-  {
-    "fact": "- US data center electricity demand is projected to reach roughly 6.7% to 12% of total US electricity consumption by 2028, up from about 4.4% in 2023. — *Lawrence Berkeley National Laboratory, '2024 United States Data Center Energy Usage Report' (Dec 2024)*",
-    "source": "Lawrence Berkeley National Laboratory, '2024 United States Data Center Energy Usage Report' (Dec 2024)",
-    "scores": {
-      "source_exists": {
-        "verdict": "yes",
-        "note": "Lawrence Berkeley National Laboratory published a real report titled '2024 United States Data Center Energy Usage Report' in December 2024."
-      },
-      "number_accurate": {
-        "verdict": "yes",
-        "note": "The LBNL report estimated data centers used about 176 TWh in 2023, or roughly 4.4% of U.S. electricity, and projected about 325 to 580 TWh by 2028, equivalent to roughly 6.7% to 12% of total U.S. electricity demand. The claim matches the report closely."
-      },
-      "date_current": {
-        "verdict": "yes",
-        "note": "A December 2024 LBNL report is current for this topic and remains one of the main recent U.S. benchmark projections for data center electricity demand through 2028."
-      },
-      "misleading": {
-        "verdict": "no",
-        "note": "The claim is a fair summary of the report's central projection range and baseline. The main caveat is that 2028 is a scenario range rather than a single forecast, but the wording 'projected to reach roughly 6.7% to 12%' reflects that."
-      },
-      "overall_verdict": "verified",
-      "confidence": "high"
-    }
-  },
-  {
-    "fact": "- Hyperscalers are securing nuclear power directly: Microsoft signed a 20-year PPA to restart Three Mile Island Unit 1 (Crane Clean Energy Center) with Constellation Energy. — *Constellation Energy / Microsoft announcement (Sep 2024)*",
-    "source": "Constellation Energy / Microsoft announcement (Sep 2024)",
-    "scores": {
-      "source_exists": {
-        "verdict": "yes",
-        "note": "Yes. Constellation Energy and Microsoft publicly announced in September 2024 a long-term power agreement tied to restarting Three Mile Island Unit 1, renamed the Crane Clean Energy Center."
-      },
-      "number_accurate": {
-        "verdict": "yes",
-        "note": "The reported term of the agreement was 20 years, matching widespread coverage and company statements about the Microsoft-Constellation deal."
-      },
-      "date_current": {
-        "verdict": "yes",
-        "note": "This is a September 2024 announcement and remains current as a recent example of hyperscaler-linked nuclear procurement."
-      },
-      "misleading": {
-        "verdict": "uncertain",
-        "note": "Broadly accurate, but 'directly' can overstate the structure: this is a power purchase agreement supporting a plant restart, not Microsoft buying or operating the reactor itself. Also, the restart remains subject to regulatory and execution milestones."
-      },
-      "overall_verdict": "verified",
-      "confidence": "high"
+      "overall_verdict": "uncertain",
+      "confidence": "low"
     }
   }
 ]
